@@ -1,0 +1,160 @@
+/* ===== GENERAL ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f4f8;
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ===== MAIN CARDS ===== */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: #1d4ed8;
+  margin-bottom: 15px;
+}
+
+/* ===== INPUTS ===== */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 8px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button.clear {
+  background: #e11d48;
+}
+
+button.clear:hover {
+  background: #be123c;
+}
+
+/* ===== CONTADOR DE CÉLULAS ===== */
+.contador-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.display {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.display p {
+  margin: 5px 0;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+/* ===== RESULTADOS ===== */
+.resultado {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f0f9ff;
+  border-left: 5px solid #1d4ed8;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  background: #f1f5f9;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  button {
+    flex: 1;
+  }
+}

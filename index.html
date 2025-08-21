@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora</h1>
+        <nav>
+            <a href="#malaria">Cálculo de Malaria</a>
+            <a href="#leucocitos">Corrección de Leucocitos</a>
+            <a href="#contador">Contador de Células</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Recuento de Parásitos -->
+        <section id="malaria" class="card">
+            <h2>Recuento de Parásitos</h2>
+            <label for="parasitos">Número de parásitos observados:</label>
+            <input type="number" id="parasitos" placeholder="Ejemplo: 50">
+
+            <label for="leucocitos">Número real de leucocitos contados (opcional si muy alta parasitemia):</label>
+            <input type="number" id="leucocitos" placeholder="Solo si caso especial">
+
+            <label>
+                <input type="checkbox" id="altaParasitemia"> Parasitemia muy alta (caso especial)
+            </label>
+
+            <button onclick="calcularRecuento()">Calcular recuento</button>
+            <div id="resultadoMalaria" class="resultado">Resultado aquí</div>
+        </section>
+
+        <!-- Corrección de Leucocitos -->
+        <section id="leucocitos" class="card">
+            <h2>Corrección de Leucocitos</h2>
+            <label for="blastos">Número de blastos observados:</label>
+            <input type="number" id="blastos" placeholder="Ejemplo: 30">
+
+            <label for="totalLeucocitos">Número total de leucocitos reportados:</label>
+            <input type="number" id="totalLeucocitos" placeholder="Ejemplo: 10000">
+
+            <button onclick="corregirLeucocitos()">Calcular corrección</button>
+            <div id="resultadoLeucocitos" class="resultado">Resultado aquí</div>
+        </section>
+
+        <!-- Contador de Células -->
+        <section id="contador" class="card">
+            <h2>Contador de Células</h2>
+            <div class="contador-botones">
+                <button onclick="contar('neutrofilos')">Neutrófilo</button>
+                <button onclick="contar('linfocitos')">Linfocito</button>
+                <button onclick="contar('monocitos')">Monocito</button>
+                <button onclick="contar('eosinofilos')">Eosinófilo</button>
+                <button onclick="contar('basofilos')">Basófilo</button>
+                <button class="clear" onclick="reiniciarContador()">Clear</button>
+            </div>
+            <div id="display" class="display">
+                <p><strong>Neutrófilos:</strong> 0 (0.0%)</p>
+                <p><strong>Linfocitos:</strong> 0 (0.0%)</p>
+                <p><strong>Monocitos:</strong> 0 (0.0%)</p>
+                <p><strong>Eosinófilos:</strong> 0 (0.0%)</p>
+                <p><strong>Basófilos:</strong> 0 (0.0%)</p>
+                <p class="total">Total: 0 / 100</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Desarrollado por Elias Acuña
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
