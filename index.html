@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Calculadora Médica</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Calculadora</h1>
+        <h1>Calculadora Médica</h1>
         <nav>
             <a href="#malaria">Cálculo de Malaria</a>
             <a href="#leucocitos">Corrección de Leucocitos</a>
@@ -74,5 +74,53 @@
     </footer>
 
     <script src="script.js"></script>
+
+<!-- Nueva sección: Corrección de Recuento Reticulocitario (CRRET) -->
+<section class="calculator">
+  <h2>Corrección de Recuento Reticulocitario (CRRET)</h2>
+  <label for="reticulocitos">Reticulocitos observados (%):</label>
+  <input type="number" id="reticulocitos" step="0.01" placeholder="Ej: 1.5">
+
+  <label for="hto">Hematocrito del paciente (%):</label>
+  <input type="number" id="hto" step="0.1" placeholder="Ej: 38">
+
+  <label for="grupo">Grupo etario:</label>
+  <select id="grupo">
+    <option value="51">Recién nacidos (Hto 51)</option>
+    <option value="38">Niños hasta 10 años (Hto 38)</option>
+    <option value="42">Mujeres (Hto 42)</option>
+    <option value="45">Hombres (Hto 45)</option>
+  </select>
+
+  <button onclick="calcularCRRET()">Calcular</button>
+
+  <div id="resultadoCRRET" class="resultado"></div>
+</section>
+
+<script>
+function calcularCRRET() {
+  const reticulocitos = parseFloat(document.getElementById('reticulocitos').value);
+  const htoPaciente = parseFloat(document.getElementById('hto').value);
+  const htoNormal = parseFloat(document.getElementById('grupo').value);
+  const resultadoDiv = document.getElementById('resultadoCRRET');
+
+  if (isNaN(reticulocitos) || isNaN(htoPaciente) || isNaN(htoNormal)) {
+    resultadoDiv.innerHTML = "<p style='color:red;'>Por favor complete todos los campos.</p>";
+    return;
+  }
+
+  const crret = (reticulocitos * htoPaciente) / htoNormal;
+  let interpretacion = "";
+
+  if (crret < 2) {
+    interpretacion = "Valor corregido dentro de rango normal.";
+  } else {
+    interpretacion = "Valor corregido elevado, posible respuesta medular aumentada.";
+  }
+
+  resultadoDiv.innerHTML = `<p><strong>Reticulocitos corregidos:</strong> ${crret.toFixed(2)}%<br>${interpretacion}</p>`;
+}
+</script>
+
 </body>
 </html>
